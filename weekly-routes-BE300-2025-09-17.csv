@@ -1,0 +1,181 @@
+Route ID	Route sequence	Point code	Point name	Number of bags to drop-off	Number of bags to pick-up	Address	Delivery hours	Visit status
+"R-15"	1	"BE043163"	"Food planet"	1	6	"Rue Mathieu de Lexhy 114, Grâce-Berleur, 4460, BE"	"12:00-23:00"	true
+"R-15"	2	"BE042776"	"Gondal Scrl"	3	4	"Rue Paul Janson 179, Grâce-Berleur, 4460, BE"	"09:00-23:00"	true
+"R-15"	3	"BE025798"	"A À Z Librairie"	3	7	"Rue de la Station 82, Seraing , 4101, BE"	"08:00-18:00"	true
+"R-15"	4	"BE025898"	"Librairie L'encrier"	2	8	"Place des Verriers  1, Seraing, 4100, BE"	"07:30-12:00;13:00-18:00"	true
+"R-15"	5	"BE038895"	"BetterShop"	0	8	"Rue de la Baume 287, Seraing, 4100, BE"	"09:30-12:00;13:00-19:00"	true
+"R-15"	6	"BE100271"	"Martine Van - Artisan Parfumeur"	1	6	"Avenue de la Station 16 , Esneux, 4130, BE"	"10:00-18:00"	true
+"R-15"	7	"BE026649"	"Bois Moderne "	1	7	"Rue du Gonhy 41, Seraing, 4100, BE"	"09:00-12:00"	true
+"R-15"	8	"BE041005"	"page à page "	6	12	"Avenue Joseph Wuidar 61, Ougrée, 4102, BE"	"08:30-13:30"	true
+"R-15"	9	"BE026005"	"Mediacité Liège"	2	23	"Bd Raymond Poincaré  7, Liège , 4020, BE"	"10:00-15:00"	true
+"R-15"	10	"BE043111"	"Lucky Express"	0	10	"Rue Saint-Gilles 79, Liège, 4000, BE"	"12:00-21:00"	true
+"R-15"	11	"BE049861"	"Horizon Travel "	1	6	"Rue des Guillemins 66, Liège, 4000, BE"	"10:30-16:30"	true
+"R-15"	12	"BE034177"	"Chez Vansh"	2	8	"Rue de Hesbaye 215, Liège, 4000, BE"	"08:00-18:00"	true
+"R-15"	13	"BE042770"	"Valkenborgh Exellent"	1	5	"Rue Sainte-Walburge 115, Liège, 4000, BE"	"09:30-12:30;14:00-18:00"	true
+"R-15"	14	"BE057759"	"Service Point"	0	9	"Chaussée de Tongres 269, Rocourt, 4000, BE"	"09:00-18:00"	true
+"R-15"	15	"BE025740"	"Maison SERONVALLE"	2	4	"Rue Albert 1er 05, Liers, 4042, BE"	"08:00-12:00;13:00-18:00"	true
+"R-14"	1	"BE043266"	"Librairie Des Vignerons"	0	7	"Rue Joseph Wauters 65, Vivegnis, 4683, BE"	"06:00-17:00"	true
+"R-14"	2	"BE040884"	"Librairie Tibo"	3	6	"Rue de Visé 164, Liège, 4020, BE"	"06:00-12:30;13:30-18:00"	true
+"R-14"	3	"BE042791"	"Q8 Jupille"	3	7	"Rue de Fléron 47, Liège, 4020, BE"	"07:00-19:00"	true
+"R-14"	4	"BE025887"	"Librairie Titi"	1	10	"Rue Churchill 4, Romsée, 4624, BE"	"06:00-12:30;13:30-18:00"	true
+"R-14"	5	"BE029306"	"Librairie Le Jeune"	4	6	"Rue Grand'rue 21, Forêt, 4870, BE"	"06:00-18:00"	true
+"R-14"	6	"BE041680"	"Embourg Services Diffusion Scrl"	3	8	"Voie de l'Ardenne 101, Embourg, 4053, BE"	"08:00-19:00"	true
+"R-14"	7	"BE026388"	"Librairie Fabienne Et Dany"	6	8	"Rue de l'Eglise 74, Chenee, 4032, BE"	"08:00-18:00"	true
+"R-14"	8	"BE026607"	"Librairie des Thiers"	0	6	"Rue des Mauvaises Vignes 231, Chenee, 4032, BE"	"06:30-12:00;13:30-18:00"	true
+"R-14"	9	"BE026423"	"Librairie-Presse-B-LOCAL"	1	8	"Rue Vinâve 13B, Grivegnée, 4030, BE"	"09:00-13:00;16:00-19:00"	true
+"R-14"	10	"BE040910"	"Ekam Express"	0	10	"Rue de Herve 14, Liège, 4020, BE"	"07:00-18:00"	true
+"R-14"	11	"BE048009"	"Clic En Sock - Promophot"	0	5	"Rue Puits-en-Sock 81, Liège, 4020, BE"	"10:00-18:00"	true
+"R-14"	12	"BE026359"	"Pharmacie Dantoin"	2	5	"Rue des Maraichers 90, Liège, 4020, BE"	"09:00-18:30"	true
+"R-14"	13	"BE044124"	"Pharmacie De Baviere"	0	4	"Rue des Bonnes-Villes 9, Liège, 4020, BE"	"09:00-18:30"	true
+"R-14"	14	"BE047692"	"Flex SHOP"	5	9	"Féronstrée 15, Liège, 4000, BE"	"10:00-11:30"	true
+"R-14"	15	"BE038773"	"Librairie Chez PIERRE "	2	7	"Rue Saint-Léonard 218, Liège, 4000, BE"	"08:00-12:30;13:15-18:00"	true
+"R-14"	16	"BE026699"	"Point Press"	1	2	"Place d' Elmer 54, Wandre, 4020, BE"	"07:00-18:00"	true
+"R-14"	17	"BE026571"	"Home Destock SPRL "	1	4	"Place Des Demoisselles De Herstal 3, Herstal, 4040, BE"	"13:30-18:00"	true
+"R-14"	18	"BE033861"	"L'alchimie des plaisirs"	1	10	"Première Avenue 277B, Herstal, 4040, BE"	"05:00-18:00"	true
+"R-13"	1	"BE039296"	"The Vap Store/Airsoft-Aywaille"	1	5	"Avenue Louis Libert 22C, Aywaille, 4920, BE"	"10:00-18:30"	true
+"R-13"	2	"BE035695"	"Station Total Louveigné "	3	9	"Rue de Remouchamps 1, Louveigné, 4141, BE"	"07:00-20:00"	true
+"R-13"	3	"BE032599"	"Lumi Market Theux"	1	2	"Rue Hovémont 98, Theux, 4910, BE"	"10:00-22:00"	true
+"R-13"	4	"BE056867"	"Ma-X-LinE"	0	2	"Rue Collin Leloup 53, Spa, 4900, BE"	"10:30-12:30;13:30-17:00"	true
+"R-13"	5	"BE043060"	"Drive de Malmedy"	0	6	"Ol'z-Eyôs 1, Malmedy, 4960, BE"	"09:00-18:00"	true
+"R-13"	6	"BE026524"	"Phone For You "	0	4	"Chemin-Rue  24, Malmedy, 4960, BE"	"10:00-12:30;13:30-17:30"	true
+"R-13"	7	"BE026288"	"Al Gazette Du Stimbiet"	1	7	"Av. Fernand Desonay 95, Stembert , 4801, BE"	"07:00-12:30;13:00-16:00"	true
+"R-13"	8	"BE040696"	"Librairie Dethier"	1	7	"Avenue Victor David 37, Limbourg, 4830, BE"	"07:00-12:30;13:30-18:00"	true
+"R-13"	9	"BE032399"	"Librairie Milo"	1	5	"Rue de France 52, Verviers, 4800, BE"	"07:00-20:00"	true
+"R-13"	10	"BE026722"	"IT Systèmes Verviers"	0	2	"Rue de l'harmonie 60, Verviers, 4800, BE"	"09:30-12:30;13:00-18:00"	true
+"R-13"	11	"BE025881"	"Librairie Cronet"	3	5	"Rue Saint-bernard 45, Verviers, 4800, BE"	"06:30-17:00"	true
+"R-13"	12	"BE025934"	"CHEZ MEMIS SRL "	0	6	"Chaussée de la Seigneurie 175, Petit-rechain , 4800, BE"	"07:00-18:00"	true
+"R-13"	13	"BE054184"	"Librairie Chez Sarah Leloup"	1	11	"Rue Léopold 83, Dison, 4820, BE"	"07:30-18:00"	true
+"R-13"	14	"BE027417"	"Pompom by Lou ASPJ"	0	5	"Rue de Battice 95, Aubel, 4880, BE"	"10:00-18:00"	true
+"R-13"	15	"BE025883"	"Librairie Aux papyrus"	0	6	"Avenue Jean Jaures 1B1, Soumagne, 4630, BE"	"06:30-18:30"	true
+"R-13"	16	"BE042429"	"Csa Thys Srl - Station Total"	1	17	"Avenue Libert Froidmont 8, Haccourt, 4684, BE"	"05:30-21:00"	true
+"R-12"	1	"BE027211"	"Coiffeur Nicolas"	1	6	"Rue Jean Jaurès 21, Awans, 4340, BE"	"08:30-18:00"	true
+"R-12"	2	"BE032386"	"Superette Mimi "	1	9	"Place Emile Vinck 1, Flémalle-Haute, 4400, BE"	"09:00-20:00"	true
+"R-12"	3	"BE057752"	"Total Awirs "	0	13	"Quai du Halage 73, Awirs, 4400, BE"	"07:00-19:00"	true
+"R-12"	4	"BE033376"	"Librairie Winden "	1	7	"Grand-Route 30, Ombret, 4540, BE"	"06:30-18:00"	true
+"R-12"	5	"BE049537"	"Mobilier Tendances "	1	6	"Route de Marche 22, Abée-Scry, 4557, BE"	"10:00-18:00"	true
+"R-12"	6	"BE027561"	"Station-service CADO"	2	6	"Route de Hamoir 9, Huy, 4500, BE"	"07:30-19:00"	true
+"R-12"	7	"BE048236"	"Comptoir Des Boisson"	0	4	"Grand-Route 57, Tihange, 4500, BE"	"09:00-18:00"	true
+"R-12"	8	"BE025812"	"ATE INFORMATIQUE"	2	12	"Rue Godelet 33, Huy, 4500, BE"	"09:00-18:30"	true
+"R-12"	9	"BE045764"	"Louis Delhaize Villers"	2	8	"Rue de Waremme 4, Villers-le-Bouillet, 4530, BE"	"08:00-19:00"	true
+"R-12"	10	"BE034866"	"Libre et rie"	5	5	"Rue Reine Astrid 26, Saint-Georges-sur-Meuse, 4470, BE"	"08:00-18:00"	true
+"R-12"	11	"BE040929"	"Boucherie Foussoul"	0	3	"Rue de la Station 35, Fexhe-le-Haut-Clocher, 4347, BE"	"08:30-12:30;14:00-18:00"	true
+"R-12"	12	"BE040857"	"Librairie -B-local.be"	2	5	"Grand'Route 63, Crisnée, 4367, BE"	"07:00-13:00"	true
+"R-12"	13	"BE047895"	"La Friperie By Hélène "	1	5	"Avenue Reine Astrid 11, Waremme, 4300, BE"	"10:00-18:00"	true
+"R-12"	14	"BE042134"	"Imprimerie Leemans "	1	7	"Rue de Petit-Axhe 45, Waremme, 4300, BE"	"09:00-18:00"	true
+"R-12"	15	"BE042896"	"Librairie Herman "	0	7	"Rue du Sacré-Coeur 2, Braives, 4260, BE"	"07:00-12:00;13:00-17:00"	true
+"R-12"	16	"BE026488"	"Lumi Market"	1	15	"ROUTE DE NAMUR 24, Ciplet, 4260, BE"	"06:30-20:00"	true
+"R-12"	17	"BE043035"	"Autre Chose "	1	9	"Rue Albert 1er 40, Hannut, 4280, BE"	"10:00-18:00"	true
+"R-11"	1	"BE031682"	"Cote Jardin "	0	2	"Rue du Pré des Fossés 5, Manhay, 6960, BE"	"09:00-12:00;13:30-18:30"	true
+"R-11"	2	"BE031955"	"Chaussures Camy "	0	2	"Rue Belle Vue 56, Etalle, 6740, BE"	"09:30-18:30"	true
+"R-11"	3	"BE041438"	"La Librairie de Messancy"	0	7	"Rue des Chasseurs-Ardennais 11, Messancy, 6780, BE"	"06:30-12:00;13:00-18:00"	true
+"R-11"	4	"BE027656"	"Librairie Des faubourgs"	0	6	"Rue des Faubourgs 69, Arlon, 6700, BE"	"06:00-19:00"	true
+"R-11"	5	"BE033205"	"PINETTE.be"	1	1	"Rue du Sablon 21, Bastogne, 6600, BE"	"09:00-12:00;14:00-17:00"	true
+"R-11"	6	"BE040620"	"SRL Transports Genin / Station Total"	1	3	"Route de la Barrière 10, Champlon, 6970, BE"	"06:00-19:30"	true
+"R-11"	7	"BE027687"	"Terre W Art "	1	8	"Rue de la Station 3, Marloie, 6900, BE"	"10:00-19:00"	true
+"R-11"	8	"BE045923"	"Station Lacroix"	1	4	"Rue des Combattants 39, On, 6900, BE"	"07:00-20:00"	true
+"R-11"	9	"BE040853"	"Nouvelle Station Du Biran"	0	3	"Rue de la Libération 73, Rochefort, 5580, BE"	"07:00-20:00"	true
+"R-11"	10	"BE042543"	"Librairie Laval Claire"	0	4	"Rue Grande 24, Aye, 6900, BE"	"08:00-12:30"	true
+"R-11"	11	"BE036084"	"Cd'lire"	1	3	"Chaussée de Liège 61, Hamois, 5360, BE"	"05:30-18:00"	true
+"R-11"	12	"BE038873"	"Station Shell Deba"	0	6	"Rue Saint Gilles 71, Ciney, 5590, BE"	"07:30-18:00"	true
+"R-11"	13	"BE042607"	"Piragri Ciney"	0	8	"Champs Elysées 24, Ciney, 5590, BE"	"07:00-19:30"	true
+"R-10"	1	"BE047456"	"Sports Shop Factory"	1	10	"Chaussée de Nivelles  18, Braine-l'Alleud, 1420, BE"	"10:00-18:30"	true
+"R-10"	2	"BE028217"	"Aux Delices"	1	6	"Avenue Alphonse Allard 336, Braine-l'Alleud, 1420, BE"	"07:30-19:00"	true
+"R-10"	3	"BE030481"	"Librairie Beau Rivage "	0	5	"Avenue Raymond Brassinne 4, Braine-l'Alleud, 1420, BE"	"06:30-19:00"	true
+"R-10"	4	"BE040562"	"Librairie la Cloche "	0	7	"Avenue de Haussy 14, Manage, 7170, BE"	"08:00-12:00;14:00-18:00"	true
+"R-10"	5	"BE029484"	"Superette de la Place "	2	4	"Place Roi Baudouin 12, Bois-d'Haine, 7170, BE"	"08:00-20:00"	true
+"R-09"	1	"BE045348"	"Leonidas"	0	3	"Rue de la Libération 68, Braine-le-Château, 1440, BE"	"09:30-13:00;14:00-18:00"	true
+"R-09"	2	"BE043147"	"La Mie Gourmande"	0	10	"Av. de France 6, Nivelles, 1400, BE"	"07:00-18:00"	true
+"R-09"	3	"BE028304"	"The Point Shopping Nivelles"	1	7	"Chaussée de Mons 18, Nivelles, 1400, BE"	"10:00-18:30"	true
+"R-08"	1	"BE025441"	"Photo Poley Espaces Multimedia"	3	6	"Grand Place 3, Tubize, 1480, BE"	"09:00-18:30"	true
+"R-08"	2	"BE046276"	"Mister Shop  "	1	7	"Rue du Grand Péril 87, Hennuyères, 7090, BE"	"06:00-23:00"	true
+"R-08"	3	"BE042365"	"Prink "	0	2	"Rue Arthur Pouplier 81, Ecaussinnes d'Enghien, 7190, BE"	"08:30-12:00;13:30-18:30"	true
+"R-06"	1	"BE038583"	"Louis Delhaize Couthuin "	0	4	"Place Communale 7, Couthuin, 4218, BE"	"08:00-18:00"	true
+"R-06"	2	"BE035680"	"Bianco Net"	0	8	"Avenue Roi Albert 71, Andenne, 5300, BE"	"10:00-12:00;12:30-18:00"	true
+"R-06"	3	"BE039173"	"Studio Pinon"	1	5	"Rue du Commerce 17, Andenne, 5300, BE"	"10:00-12:30;14:00-18:00"	true
+"R-06"	4	"BE058913"	"O’smoz"	0	5	"Rue de Ciney 14, Ohey, 5350, BE"	"09:00-22:00"	true
+"R-06"	5	"BE044198"	"Intermarché Gedinne "	1	2	"Rue de Charleville 48, Gedinne, 5575, BE"	"08:00-18:30"	true
+"R-06"	6	"BE025933"	"Librairie De La Gare Sprl"	1	9	"rue de la gare 23, Beauraing , 5570, BE"	"05:30-18:30"	true
+"R-06"	7	"BE042814"	"TotalEnergies Dinant"	0	4	"Rue Saint-Jacques 331, Dinant, 5500, BE"	"05:00-20:00"	true
+"R-06"	8	"BE043763"	"Dynamo Shop Srl"	0	5	"Rue Grande 3Bte2, Anhée, 5537, BE"	"09:00-22:00"	true
+"R-06"	9	"BE056708"	"Total Energies Riviere "	1	0	"Chaussée de Dinant 182, Rivière, 5170, BE"	"06:00-19:00"	true
+"R-06"	10	"BE025974"	"Au Parc D Amee "	3	10	"Avenue Parc d'Amée 3, Jambes, 5100, BE"	"07:00-18:00"	true
+"R-06"	11	"BE046763"	"El Madina "	1	7	"Avenue Gouverneur Bovesse 66, Jambes, 5100, BE"	"10:00-20:00"	true
+"R-06"	12	"BE040718"	"Inkéo Namur"	1	6	"Avenue Prince de Liege 69, Jambes, 5100, BE"	"09:30-12:30;13:00-17:00"	true
+"R-06"	13	"BE046891"	"Kvk Déco "	1	1	"Rue de Bomel 27, Namur, 5000, BE"	"10:00-18:30"	true
+"R-06"	14	"BE040819"	"Afro Asia Market"	2	5	"Rue des Carmes 61, Namur, 5000, BE"	"09:30-20:30"	true
+"R-06"	15	"BE100591"	"Sevenday"	3	2	"Avenue des Combattants 8, Namur, 5000, BE"	"00:00-23:59"	true
+"R-06"	16	"BE041746"	"Sun7 Flawinne"	0	5	"Rue Marcel Vandy 11, Flawinne, 5020, BE"	"06:30-22:00"	true
+"R-06"	17	"BE042450"	"Sun7 Cognelée"	2	7	"Chaussée de Louvain 999, Namur, 5022, BE"	"06:30-23:00"	true
+"R-06"	18	"BE027920"	"Total Energie Eghézée "	0	15	"Route de Ramilies 6, Eghezee, 5310, BE"	"06:30-19:00"	true
+"R-06"	19	"BE025818"	"Librairie.be"	1	3	"Avenue de la liberation 15A, Forville, 5380, BE"	"06:00-12:00;13:30-18:00"	true
+"R-05"	1	"BE034382"	"Oz Energy"	0	6	"Chaussée de Namur 480, Beuzet, 5030, BE"	"05:00-23:59"	true
+"R-05"	2	"BE040318"	"Sun7 Mazy"	1	2	"Chaussée de Nivelles 2B, Mazy, 5032, BE"	"06:30-22:00"	true
+"R-05"	3	"BE043114"	"Total Jemeppe Sur Sambre"	0	6	"Route d'Eghezée 97, Jemeppe-sur-Sambre, 5190, BE"	"07:00-21:00"	true
+"R-05"	4	"BE025916"	"sprljmg"	0	2	"Rue de la Glacerie 136, Moustier-sur-Sambre, 5190, BE"	"10:00-20:00"	true
+"R-05"	5	"BE042642"	"Sun 7 Auvelais"	0	4	"Rue Docteur Romedenne 12, Auvelais, 5060, BE"	"06:00-23:00"	true
+"R-05"	6	"BE042641"	"Sun7 Tamines 2"	1	4	"Avenue des Français 77, Tamines, 5060, BE"	"06:00-23:00"	true
+"R-05"	7	"BE044928"	" Librairie chez Laurence DH"	1	2	"Rue d'Auvelais 43D, Arsimont, 5060, BE"	"07:30-19:00"	true
+"R-05"	8	"BE058126"	"Fabelsold"	0	2	"Chaussée de Namur 68, FOSSES-LA-VILLE, 5070, BE"	"09:00-17:30"	true
+"R-05"	9	"BE041077"	"Neuronics"	3	6	"Place Joseph Meunier 13, Mettet, 5640, BE"	"09:00-12:30;13:30-18:00"	true
+"R-05"	10	"BE035328"	"Fosses Assistpc"	0	4	"Rue du Cimetière 7, Fosses la Ville , 5070, BE"	"10:00-18:00"	true
+"R-05"	11	"BE046908"	"PAPERAS "	1	3	"Avenue Astrid 5, Gerpinnes, 6280, BE"	"07:00-18:30"	true
+"R-05"	12	"BE055845"	"Kaya Shop"	0	3	"Route de Namur 562, Châtelet, 6200, BE"	"07:00-23:00"	true
+"R-05"	13	"BE028649"	"IMAGE CHATELET"	2	13	"Rue de la Station 60, Châtelet, 6200, BE"	"10:00-22:00"	true
+"R-05"	14	"BE040315"	"Sun7 Lambusart"	1	2	"Rue du Wainage 205, Lambusart, 6220, BE"	"06:30-23:00"	true
+"R-05"	15	"BE028532"	"Au Bon coin"	0	3	"Route de Namur 180, Wanfercée-Baulet, 6224, BE"	"11:00-20:30"	true
+"R-05"	16	"BE040316"	"Sun7 Baulet"	0	4	"Rue de la Closière 5, Wanfercée-Baulet, 6224, BE"	"06:30-23:00"	true
+"R-05"	17	"BE049284"	"Press Shop & More Sombreffe"	1	2	"Chaussée de Nivelles 21A, Sombreffe, 5140, BE"	"06:00-18:30"	true
+"R-05"	18	"BE027875"	"Esso Gadisseur "	0	7	"Chaussée de Nivelles 130, Sombreffe, 5140, BE"	"07:30-19:00"	true
+"R-05"	19	"BE038288"	"La p’tite folie D’Anne So"	0	6	"Rue du Berceau 16, Marbais, 1495, BE"	"09:00-18:00"	true
+"R-04"	1	"BE043167"	"Magic Center "	1	3	"Rue des Emailleries 30, Charleroi, 6041, BE"	"06:00-19:30"	true
+"R-04"	2	"BE100085"	"Au Plaisir Des Petits Et Grands"	0	1	"Rue Maximilien Wattelar 3, Charleroi, 6040, BE"	"09:00-18:30"	false
+"R-04"	3	"BE027670"	"Chez Greg"	0	4	"Place Edmond Gilles 21, Lodelinsart, 6042, BE"	"08:00-19:00"	true
+"R-04"	4	"BE036205"	"Point Info Rive Gauche "	1	3	"Place Verte 20 Bte 2, Charleroi, 6000, BE"	"10:00-19:00"	true
+"R-04"	5	"BE046691"	"Mast Qalandar "	1	3	"Rue de la Belle-Vue 72, Marcinelle, 6001, BE"	"10:30-20:00"	true
+"R-04"	6	"BE039294"	"Mini Market"	1	1	"Rue de Nalinnes 139, Charleroi, 6001, BE"	"08:00-20:00"	true
+"R-04"	7	"BE029752"	"Au Gourmet"	0	11	"Route de Philippeville 386, Couillet, 6010, BE"	"08:00-20:00"	true
+"R-04"	8	"BE040762"	"Lectures Et Loisirs "	1	5	"Rue d'Acoz 4, Nalinnes, 6120, BE"	"08:00-18:00"	true
+"R-04"	9	"BE042970"	"Shopy"	1	1	"Rue de Gilly 164, Couillet, 6010, BE"	"09:00-20:00"	true
+"R-04"	10	"BE042889"	"Librairie de la Samaritaine "	0	9	"Grand'Rue (MT) 311, Montignies-sur-Sambre, 6061, BE"	"06:30-18:00"	true
+"R-04"	11	"BE047114"	"MVA PHARMA SRL"	0	3	"Chaussée de Fleurus (GY) 593, Gilly, 6060, BE"	"09:00-12:30;13:30-18:00"	true
+"R-04"	12	"BE043007"	"Monsieur Bricolage Gilly "	2	5	"Rue des Vallées 7A, Gilly, 6060, BE"	"09:00-18:30"	true
+"R-04"	13	"BE034301"	"La Corbeille d’Or "	0	0	"Rue Masses Diarbois 108, Ransart, 6043, BE"	"09:30-19:00"	false
+"R-04"	14	"BE040643"	"Librairie Du Coin"	1	8	"Rue de la Révolution 6, Jumet, 6040, BE"	"06:00-18:00"	true
+"R-03"	1	"BE059423"	"L'harmonie Des Senteurs."	1	3	"Rue Arsenal164, Pont-à-Celles, 6230, BE"	"10:00-18:00"	true
+"R-03"	2	"BE045900"	"Librairie Au Bon Choix "	1	2	"Rue du Gazomètre 1, Pont-à-Celles, 6230, BE"	"07:00-12:30"	true
+"R-03"	3	"BE059439"	"Have Belgium"	1	1	"Rue Philippe Monnoyer 2, Courcelles, 6180, BE"	"09:30-17:00"	true
+"R-03"	4	"BE100558"	"Librairie Du Charnois"	2	8	"Rue de Courcelles 116, Charleroi, 6044, BE"	"06:00-18:00"	true
+"R-03"	5	"BE034637"	"Cofamar Q8 Courcelles"	4	9	"Sart Lez Moulin 79A, Courcelles, 6180, BE"	"07:15-19:00"	true
+"R-03"	6	"BE028914"	"Planet Video "	0	5	"Rue des grands trieux 17, Charleroi, 6031, BE"	"08:00-23:00"	true
+"R-03"	7	"BE038905"	"Le Cosmopolite "	0	5	"Rue de Beaumont 392, Marchienne-au-Pont, 6030, BE"	"10:00-18:30"	true
+"R-03"	8	"BE040087"	"Le Point Du Jour "	1	13	"Chaussée de Thuin 151, Mont-sur-Marchienne, 6032, BE"	"06:00-19:30"	true
+"R-03"	9	"BE045084"	"Librairie Jamioulx Loisirs"	1	5	"Place Communale 2, Jamioulx, 6120, BE"	"05:00-12:30;13:30-18:30"	true
+"R-03"	10	"BE042857"	"Louis Delhaize de Gozée"	0	3	"Rue de Thuin 11B, Thuin, 6534, BE"	"08:00-19:00"	true
+"R-03"	11	"BE041382"	"Librairie D’en Haut "	2	2	"Rue d'en Haut 11, Beaumont, 6500, BE"	"07:00-18:30"	true
+"R-03"	12	"BE032831"	"Louis Delhaize"	1	5	"Chaussée de Beaumont 80, Boussu-lez-Walcourt, 6440, BE"	"07:30-19:00"	true
+"R-03"	13	"BE032702"	"Au petit marché - SRL J.G.Commerce"	2	1	"Rue De La Montagne, 19, Walcourt , 5650, BE"	"07:00-18:30"	true
+"R-03"	14	"BE032677"	"Librairie Le Furet"	1	3	"Rue De La Marcelle 157, Couvin, 5660, BE"	"06:00-18:30"	true
+"R-03"	15	"BE045926"	"Sogeloc"	0	3	"Rue de Mons 376A, Fontaine-l'Evêque, 6140, BE"	"07:30-12:00;13:30-17:03"	true
+"R-02"	1	"BE033676"	"Crazy Shop"	2	2	"Grand'Place 32, Le Roeulx, 7070, BE"	"09:00-21:00"	true
+"R-02"	2	"BE058769"	"Fast Shop "	0	5	"Chaussée Paul Houtart 240, La Louvière, 7110, BE"	"07:00-18:15"	true
+"R-02"	3	"BE057211"	"ONE STOP SHOP"	2	1	"Rue Gustave Boël 106, La Louvière, 7100, BE"	"08:00-22:00"	true
+"R-02"	4	"BE059419"	"Librairie Du Roi"	0	1	"Rue Albert1er, La Louvière, 7100, BE"	"07:00-20:00"	true
+"R-02"	5	"BE036614"	"Crazy Shop La Louvière"	1	11	"Rue Emile Urbain 52, Saint-Vaast, 7100, BE"	"10:00-19:00"	true
+"R-02"	6	"BE040549"	"Libraries de Peronnes"	0	2	"Avenue Léopold III 198, Péronnes-lez-Binche, 7134, BE"	"06:00-18:00"	true
+"R-02"	7	"BE040355"	"Librairie De Givry "	0	3	"Rue De Pâturages 40, Givry, 7041, BE"	"07:00-18:00"	true
+"R-02"	8	"BE036310"	"Librairie de la Place "	1	9	"Grand Place 5, Erquelinnes, 6560, BE"	"07:00-12:00;13:30-18:00"	true
+"R-02"	9	"BE056635"	"Librairie De L'Athénée"	1	6	"Place des Droits de l'Homme 1, Binche, 7130, BE"	"07:00-17:30"	true
+"R-02"	10	"BE040920"	"De Wilde Combustibles"	1	5	"Route De Charleroi  229, Leval-Trahegnies, 7134, BE"	"09:00-12:30;13:30-18:00"	true
+"R-02"	11	"BE032557"	"Shop Express"	2	7	"Chaussée Brunehault 490, Carnières, 7140, BE"	"13:00-21:00"	true
+"R-02"	12	"BE046089"	"WM OPTIC SRL"	1	2	"Rue de La Hestre 3, Chapelle-lez-Herlaimont, 7160, BE"	"09:30-18:00"	true
+"R-02"	13	"BE047381"	"Aux Primeurs"	2	3	"Rue de la Bachée 117, Plancenoit, 1380, BE"	"08:00-18:00"	true
+"R-02"	14	"BE051186"	"Matizla Deco "	0	8	"Route d'Ohain 26, Lasne, 1380, BE"	"10:00-18:00"	true
+"R-02"	15	"BE045360"	"Total Rosières "	1	11	"Rue de La Hulpe 13, Rosières, 1331, BE"	"07:00-19:00"	true
+"R-01"	1	"BE034956"	"Bovagri SRL - Shop Q8 Glimes "	1	7	"Chaussée de Namur 108, Piétrebais, 1315, BE"	"06:00-19:00"	true
+"R-01"	2	"BE040351"	" Cs Mag - Sun7 Wavre"	5	12	"Chaussée de Bruxelles 43, Wavre, 1300, BE"	"06:30-23:00"	true
+"R-01"	3	"BE048392"	"Alex Optique "	2	8	"Avenue des Vallées 6, Grez-Doiceau, 1390, BE"	"09:00-12:00;14:00-19:00"	true
+"R-01"	4	"BE046352"	"Papyrus"	1	9	"Place. de l'Université 19, Louvain la Neuve, 1348, BE"	"10:30-19:00"	true
+"R-01"	5	"BE026584"	"Green Clothes Court St-Etienne"	3	10	"Avenue du Modelage 31, Court Saint-Etienne, 1490, BE"	"10:00-18:30"	true
+"R-01"	6	"BE030978"	"Matizla Déco "	0	11	"Grand'Route 50, Corbais, 1435, BE"	"10:00-18:00"	true
+"R-01"	7	"BE026510"	"Gembloux Optique"	1	6	"AVENUE DE LA FACULTE D AG  59, Gembloux, 5030, BE"	"09:00-12:30;13:30-18:30"	true
+"R-01"	8	"BE100325"	"Md Sport Sa"	0	7	"Rue du Bosquet 10, Jodoigne, 1370, BE"	"09:00-22:00"	true

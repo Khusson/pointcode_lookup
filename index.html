@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Point code → Route ID & Sequence</title>
-  <meta name="description" content="Voer een Point code in en toon in groot lettertype de bijhorende Route ID en Route sequence. CSV wordt lokaal geladen (upload of via URL). Werkt op GitHub Pages en Chrome op Android." />
+  <meta name="description" content="Voer een Point code in en toon in groot lettertype de bijhorende Route ID en Route sequence. CSV lokaal (upload of URL). Android-vriendelijke bestandskiezer." />
   <style>
     :root { --bg:#0b1220; --fg:#e9f0ff; --muted:#9fb3d1; --card:#0f172a; --border:#1e293b; --ok:#67ff86; --err:#ff7a7a; }
     *{box-sizing:border-box}
@@ -34,7 +34,7 @@
 <body>
   <header>
     <h1>Point code → Route ID & Sequence</h1>
-    <div class="pill">CSV lokaal • GitHub Pages • Android-vriendelijk</div>
+    <div class="pill">CSV lokaal • GitHub Pages • Android-vriendelijke bestandskiezer</div>
   </header>
 
   <main>
@@ -42,15 +42,18 @@
       <h2>CSV laden</h2>
       <div class="content">
         <div class="row">
-          <input type="file" id="csvfile" accept="*/*" />
+          <!-- Brede accept-lijst zodat Android 'Bestanden/Downloads' toont -->
+          <input type="file" id="csvfile" accept=".csv,text/csv,application/csv,application/vnd.ms-excel,application/octet-stream,*/*" />
           <button id="clearBtn">Leegmaken</button>
         </div>
         <div class="row">
           <input type="text" id="csvUrl" placeholder="of plak hier een CSV-URL (https://.../routes.csv)" />
           <button id="loadUrlBtn" class="primary">Laad CSV van URL</button>
         </div>
-        <p class="hint">CSV verwacht kolommen: <code>Point code</code>, <code>Route ID</code>, <code>Route sequence</code> (andere kolommen worden genegeerd).<br>
-        <b>Tip Android:</b> kies <i>Bestanden → Downloads</i>. We accepteren alle bestandstypes en controleren binnenin.</p>
+        <p class="hint">
+          CSV verwacht kolommen: <code>Point code</code>, <code>Route ID</code>, <code>Route sequence</code> (andere kolommen worden genegeerd).<br>
+          <b>Android tip:</b> kies <i>Bestanden</i> → <i>Downloads</i>. Zie je enkel Camera/Foto/Video? Tik dan op <i>Bestanden</i> of het menu-icoon om de bestandskiezer te openen.
+        </p>
         <div id="csvStatus" class="hint"></div>
       </div>
     </section>
@@ -59,7 +62,7 @@
       <h2>Zoeken op Point code</h2>
       <div class="content">
         <div class="flex">
-          <input type="text" id="pointInput" placeholder="Vul Point code in (bijv. BE025833)" autocomplete="off" />
+          <input type="text" id="pointInput" placeholder="Vul bijvoorbeeld BE025833 of 25833 in (BE/leading zeros niet vereist)" autocomplete="off" />
           <button id="searchBtn" class="primary">Zoek</button>
         </div>
         <div id="out">
@@ -76,7 +79,7 @@
         <ul>
           <li>Werkt volledig client-side (geen server). CSV blijft lokaal in je browser.</li>
           <li>Je kunt ook een CSV-URL gebruiken (moet publiek bereikbaar zijn via HTTPS, bv. in dezelfde GitHub Pages site).</li>
-          <li>Zoek is niet hoofdlettergevoelig; spaties worden genegeerd.</li>
+          <li>Zoek is niet hoofdlettergevoelig; <b>BE-prefix en voorloopnullen zijn optioneel</b>.</li>
         </ul>
       </div>
     </section>
@@ -91,14 +94,22 @@ const big = document.getElementById('big');
 const sub = document.getElementById('sub');
 const tableWrap = document.getElementById('tableWrap');
 
-function normalizePoint(s){
-  return (s || '').toString().trim().toUpperCase().replace(/\s+/g, '');
+// Canonicaliseer point codes zodat invoer zonder 'BE' en zonder voorloopnullen werkt.
+function canonicalPoint(s){
+  if (!s) return '';
+  let x = String(s).toUpperCase().replace(/\s+/g, '');
+  if (x.startsWith('BE')) x = x.slice(2);
+  const m = x.match(/^0*(\d.*)$/);
+  if (m) x = m[1];
+  return x;
 }
+
 function loadCsvFromFile(file){
   Papa.parse(file, {
     header:true, skipEmptyLines:true,
     complete:(res)=>{
       db = res.data;
+      db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
       csvStatus.innerHTML = `<span class="ok">CSV geladen:</span> ${db.length} rijen`;
     },
     error:(err)=>{
@@ -115,6 +126,7 @@ function loadCsvFromUrl(url){
     download:true, header:true, skipEmptyLines:true,
     complete:(res)=>{
       db = res.data;
+      db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
       csvStatus.innerHTML = `<span class="ok">CSV geladen vanaf URL:</span> ${db.length} rijen`;
     },
     error:(err)=>{
@@ -130,14 +142,12 @@ function renderResults(rows){
     tableWrap.innerHTML = '';
     return;
   }
-  // Toon de eerste match groot
   const r = rows[0];
   const route = r['Route ID'] || '—';
   const seq = r['Route sequence'] || '—';
   big.textContent = `Route: ${route}   (seq ${seq})`;
   sub.textContent = rows.length > 1 ? `${rows.length} matches gevonden. Zie tabel hieronder.` : 'Exacte match.';
 
-  // Bouw een kleine tabel met alle matches (indien meerdere)
   let html = '';
   if(rows.length > 1){
     html += '<table><thead><tr><th>Point code</th><th>Route ID</th><th>Route sequence</th></tr></thead><tbody>';
@@ -150,9 +160,9 @@ function renderResults(rows){
 }
 
 function doSearch(){
-  const q = normalizePoint(pointInput.value);
+  const q = canonicalPoint(pointInput.value);
   if(!q){ renderResults([]); return; }
-  const rows = db.filter(row => normalizePoint(row['Point code']) === q);
+  const rows = db.filter(row => (row.__canon || '') === q);
   renderResults(rows);
 }
 
@@ -179,7 +189,11 @@ pointInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ doSearch(); }
     if(res.ok){
       Papa.parse('routes.csv', {
         download:true, header:true, skipEmptyLines:true,
-        complete:(r)=>{ db = r.data; csvStatus.textContent = `CSV automatisch geladen: ${db.length} rijen (routes.csv)`; },
+        complete:(r)=>{ 
+          db = r.data; 
+          db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
+          csvStatus.textContent = `CSV automatisch geladen: ${db.length} rijen (routes.csv)`; 
+        },
         error:()=>{ /* negeren */ }
       });
     }

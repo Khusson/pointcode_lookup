@@ -4,56 +4,62 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Point code → Route ID & Sequence</title>
-  <meta name="description" content="Voer een Point code in en toon in groot lettertype de bijhorende Route ID en Route sequence. CSV lokaal (upload of URL). Android-vriendelijke bestandskiezer." />
+  <meta name="description" content="Point code lookup met CSV via bestand, URL of plakken. Geoptimaliseerd voor Android (numeric keyboard)." />
   <style>
-    :root { --bg:#0b1220; --fg:#e9f0ff; --muted:#9fb3d1; --card:#0f172a; --border:#1e293b; --ok:#67ff86; --err:#ff7a7a; }
+    :root {
+      --bg:#0b1220; --fg:#e9f0ff; --muted:#9fb3d1; --card:#0f172a; --border:#1e293b; --ok:#67ff86; --err:#ff7a7a;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;background:var(--bg);color:var(--fg)}
-    header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    header h1{font-size:18px;margin:0}
-    main{display:grid;grid-template-columns: 560px 1fr;gap:20px;padding:20px}
-    @media (max-width:1100px){ main{grid-template-columns: 1fr} }
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-    .card h2{margin:0;padding:12px 14px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border)}
-    .card .content{padding:14px}
-    input[type=file], input[type=text], button{width:100%;margin-top:6px;margin-bottom:12px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:#0b1220;color:var(--fg);font-size:16px}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
+    header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px} .brand img{height:46px;width:auto;border-radius:6px;background:#fff;padding:4px}
+    .brand h1{margin:0;font-size:18px} .ver{color:var(--muted);font-size:13px}
+    main{padding:18px;display:grid;grid-template-columns: 600px 1fr;gap:18px}
+    @media (max-width:1100px){main{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .card h2{margin:0;padding:12px 16px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border)}
+    .card .content{padding:16px}
+    .row{display:flex;gap:12px;flex-wrap:wrap} .row>*{flex:1 1 220px}
+    input[type=file],input[type=text],textarea,button{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:#0b1220;color:var(--fg);font-size:18px}
+    textarea{min-height:160px;background:#0b1327}
+    input.big{font-size:28px;font-weight:700;letter-spacing:.5px}
     button.primary{background:#1d4ed8;border-color:#1e40af}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .row > * {flex:1 1 220px}
-    .hint{color:var(--muted);font-size:13px;line-height:1.4}
-    .ok{color:var(--ok)} .err{color:var(--err)}
-    #out{background:#07101f;border:1px solid var(--border);border-radius:12px;padding:16px;min-height:120px}
-    #big{font-size:42px;line-height:1.2;font-weight:800;letter-spacing:0.5px;margin:0}
-    #sub{font-size:18px;color:var(--muted);margin:6px 0 0 0}
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    th, td{border-bottom:1px solid var(--border);padding:8px 6px;text-align:left;font-size:14px}
-    .flex{display:flex;gap:10px;flex-wrap:wrap}
+    #out{background:#07101f;border:1px solid var(--border);border-radius:16px;padding:18px;min-height:140px}
+    #big{font-size:48px;line-height:1.15;font-weight:900;letter-spacing:.5px;margin:0}
+    #sub{font-size:18px;color:var(--muted);margin:8px 0 0 0}
+    table{width:100%;border-collapse:collapse;margin-top:12px} th,td{border-bottom:1px solid var(--border);padding:10px 8px;text-align:left;font-size:16px}
+    .hint{color:var(--muted);font-size:14px;line-height:1.5} .ok{color:var(--ok)} .err{color:var(--err)}
     .pill{display:inline-flex;gap:8px;align-items:center;background:#0a162c;border:1px solid var(--border);border-radius:999px;padding:8px 12px;font-size:13px}
   </style>
 </head>
 <body>
   <header>
-    <h1>Point code → Route ID & Sequence</h1>
-    <div class="pill">CSV lokaal • GitHub Pages • Android-vriendelijke bestandskiezer</div>
+    <div class="brand">
+      <img src="logo.jpg" alt="Cavalart koerier logo"/>
+      <div>
+        <h1>Cavalart koerier • Point code lookup</h1>
+        <div class="ver">v1.0.1 – 2025-09-17</div>
+      </div>
+    </div>
+    <div class="pill">CSV via bestand • URL • plakken</div>
   </header>
 
   <main>
     <section class="card">
       <h2>CSV laden</h2>
       <div class="content">
+        <p class="hint"><b>Android tips</b>: open deze pagina in <b>Chrome</b> (niet in WhatsApp/Instagram/Facebook in-app browser). In het bestandsvenster kies je <b>Bestanden</b> → <b>Downloads</b>.</p>
         <div class="row">
-          <!-- Brede accept-lijst zodat Android 'Bestanden/Downloads' toont -->
-          <input type="file" id="csvfile" accept=".csv,text/csv,application/csv,application/vnd.ms-excel,application/octet-stream,*/*" />
+          <input type="file" id="csvfile" accept=".csv,text/csv,application/*,*/*" />
           <button id="clearBtn">Leegmaken</button>
         </div>
         <div class="row">
           <input type="text" id="csvUrl" placeholder="of plak hier een CSV-URL (https://.../routes.csv)" />
           <button id="loadUrlBtn" class="primary">Laad CSV van URL</button>
         </div>
-        <p class="hint">
-          CSV verwacht kolommen: <code>Point code</code>, <code>Route ID</code>, <code>Route sequence</code> (andere kolommen worden genegeerd).<br>
-          <b>Android tip:</b> kies <i>Bestanden</i> → <i>Downloads</i>. Zie je enkel Camera/Foto/Video? Tik dan op <i>Bestanden</i> of het menu-icoon om de bestandskiezer te openen.
-        </p>
+        <p class="hint">Lukt bestanden kiezen nog steeds niet? Plak dan de CSV-inhoud hieronder en klik <b>Laad geplakte CSV</b>.</p>
+        <textarea id="csvPaste" placeholder="Plak hier de CSV-tekst (met kolommen: Point code, Route ID, Route sequence)"></textarea>
+        <div class="row"><button id="loadPasteBtn" class="primary">Laad geplakte CSV</button></div>
         <div id="csvStatus" class="hint"></div>
       </div>
     </section>
@@ -61,8 +67,8 @@
     <section class="card">
       <h2>Zoeken op Point code</h2>
       <div class="content">
-        <div class="flex">
-          <input type="text" id="pointInput" placeholder="Vul bijvoorbeeld BE025833 of 25833 in (BE/leading zeros niet vereist)" autocomplete="off" />
+        <div class="row">
+          <input type="tel" inputmode="numeric" pattern="[0-9]*" id="pointInput" class="big" placeholder="Typ bv. 25833 (BE/00 niet nodig)" autocomplete="one-time-code"/>
           <button id="searchBtn" class="primary">Zoek</button>
         </div>
         <div id="out">
@@ -77,9 +83,9 @@
       <h2>Tips</h2>
       <div class="content hint">
         <ul>
-          <li>Werkt volledig client-side (geen server). CSV blijft lokaal in je browser.</li>
-          <li>Je kunt ook een CSV-URL gebruiken (moet publiek bereikbaar zijn via HTTPS, bv. in dezelfde GitHub Pages site).</li>
-          <li>Zoek is niet hoofdlettergevoelig; <b>BE-prefix en voorloopnullen zijn optioneel</b>.</li>
+          <li>CSV blijft lokaal (client-side); je data verlaat het toestel niet.</li>
+          <li>Invoer: alleen cijfers nodig — matching negeert <b>BE</b> en voorloopnullen.</li>
+          <li>Je kunt ook een <b>routes.csv</b> naast deze pagina hosten; die wordt automatisch geladen.</li>
         </ul>
       </div>
     </section>
@@ -94,44 +100,42 @@ const big = document.getElementById('big');
 const sub = document.getElementById('sub');
 const tableWrap = document.getElementById('tableWrap');
 
-// Canonicaliseer point codes zodat invoer zonder 'BE' en zonder voorloopnullen werkt.
 function canonicalPoint(s){
   if (!s) return '';
   let x = String(s).toUpperCase().replace(/\s+/g, '');
   if (x.startsWith('BE')) x = x.slice(2);
-  const m = x.match(/^0*(\d.*)$/);
-  if (m) x = m[1];
+  const m = x.match(/^0*(\d.*)$/); if (m) x = m[1];
   return x;
+}
+
+function afterLoad(rows, label){
+  db = rows;
+  db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
+  csvStatus.innerHTML = `<span class="ok">CSV geladen (${label}):</span> ${db.length} rijen`;
 }
 
 function loadCsvFromFile(file){
   Papa.parse(file, {
     header:true, skipEmptyLines:true,
-    complete:(res)=>{
-      db = res.data;
-      db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
-      csvStatus.innerHTML = `<span class="ok">CSV geladen:</span> ${db.length} rijen`;
-    },
-    error:(err)=>{
-      csvStatus.innerHTML = `<span class="err">CSV fout:</span> ${err}`;
-    }
+    complete:(res)=> afterLoad(res.data, 'bestand'),
+    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout:</span> ${err}`
   });
 }
+
 function loadCsvFromUrl(url){
-  if(!/^https?:\/\//i.test(url)){ 
-    csvStatus.innerHTML = `<span class="err">Ongeldige URL</span>`; 
-    return; 
-  }
+  if(!/^https?:\/\//i.test(url)){ csvStatus.innerHTML = `<span class="err">Ongeldige URL</span>`; return; }
   Papa.parse(url, {
     download:true, header:true, skipEmptyLines:true,
-    complete:(res)=>{
-      db = res.data;
-      db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
-      csvStatus.innerHTML = `<span class="ok">CSV geladen vanaf URL:</span> ${db.length} rijen`;
-    },
-    error:(err)=>{
-      csvStatus.innerHTML = `<span class="err">CSV fout (URL):</span> ${err}`;
-    }
+    complete:(res)=> afterLoad(res.data, 'URL'),
+    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout (URL):</span> ${err}`
+  });
+}
+
+function loadCsvFromPaste(text){
+  Papa.parse(text, {
+    header:true, skipEmptyLines:true,
+    complete:(res)=> afterLoad(res.data, 'plakken'),
+    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout (plakken):</span> ${err}`
   });
 }
 
@@ -139,21 +143,17 @@ function renderResults(rows){
   if(!rows || !rows.length){
     big.textContent = 'Geen resultaat';
     sub.textContent = 'Controleer je Point code of laad de juiste CSV.';
-    tableWrap.innerHTML = '';
-    return;
+    tableWrap.innerHTML = ''; return;
   }
   const r = rows[0];
   const route = r['Route ID'] || '—';
   const seq = r['Route sequence'] || '—';
   big.textContent = `Route: ${route}   (seq ${seq})`;
   sub.textContent = rows.length > 1 ? `${rows.length} matches gevonden. Zie tabel hieronder.` : 'Exacte match.';
-
   let html = '';
   if(rows.length > 1){
     html += '<table><thead><tr><th>Point code</th><th>Route ID</th><th>Route sequence</th></tr></thead><tbody>';
-    for(const row of rows){
-      html += `<tr><td>${row['Point code']||''}</td><td>${row['Route ID']||''}</td><td>${row['Route sequence']||''}</td></tr>`;
-    }
+    for(const row of rows) html += `<tr><td>${row['Point code']||''}</td><td>${row['Route ID']||''}</td><td>${row['Route sequence']||''}</td></tr>`;
     html += '</tbody></table>';
   }
   tableWrap.innerHTML = html;
@@ -167,37 +167,22 @@ function doSearch(){
 }
 
 // UI events
-document.getElementById('csvfile').addEventListener('change', (ev)=>{
-  const f = ev.target.files[0];
-  if(!f) return;
-  loadCsvFromFile(f);
-});
-document.getElementById('clearBtn').addEventListener('click', ()=>{
-  db = []; csvStatus.textContent = 'Leeg.'; renderResults([]);
-});
-document.getElementById('loadUrlBtn').addEventListener('click', ()=>{
-  const url = document.getElementById('csvUrl').value.trim();
-  loadCsvFromUrl(url);
-});
+document.getElementById('csvfile').addEventListener('change', (ev)=>{ const f = ev.target.files[0]; if(!f) return; loadCsvFromFile(f); });
+document.getElementById('clearBtn').addEventListener('click', ()=>{ db = []; csvStatus.textContent = 'Leeg.'; renderResults([]); });
+document.getElementById('loadUrlBtn').addEventListener('click', ()=>{ const url = document.getElementById('csvUrl').value.trim(); loadCsvFromUrl(url); });
+document.getElementById('loadPasteBtn').addEventListener('click', ()=>{ const t = document.getElementById('csvPaste').value; if(!t.trim()){ csvStatus.textContent='Leeg tekstvak.'; return; } loadCsvFromPaste(t); });
 document.getElementById('searchBtn').addEventListener('click', doSearch);
-pointInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ doSearch(); }});
+pointInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') doSearch(); });
 
-// Optioneel: probeer automatisch 'routes.csv' te laden uit dezelfde map (als die bestaat).
+// Auto-load routes.csv als aanwezig
 (async function tryAutoLoad(){
   try{
     const res = await fetch('routes.csv', { method:'HEAD' });
     if(res.ok){
-      Papa.parse('routes.csv', {
-        download:true, header:true, skipEmptyLines:true,
-        complete:(r)=>{ 
-          db = r.data; 
-          db.forEach(row => { row.__canon = canonicalPoint(row['Point code']); });
-          csvStatus.textContent = `CSV automatisch geladen: ${db.length} rijen (routes.csv)`; 
-        },
-        error:()=>{ /* negeren */ }
-      });
+      Papa.parse('routes.csv', { download:true, header:true, skipEmptyLines:true,
+        complete:(r)=> afterLoad(r.data, 'routes.csv') });
     }
-  }catch(_){ /* negeren */ }
+  }catch(_ ){}
 })();
 </script>
 </body>

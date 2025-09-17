@@ -177,7 +177,7 @@ function renderResults(rows){
   const r = rows[0];
   const route = r['Route ID'] || '—';
   const seq = r['Route sequence'] || '—';
-  big.textContent = `Route: ${route}   (seq ${seq})`;
+  big.textContent = `Route: ${route}   (stop ${seq})`;
   sub.textContent = rows.length > 1 ? `${rows.length} matches gevonden. Zie tabel hieronder.` : 'Exacte match.';
   let html = '';
   if(rows.length > 1){

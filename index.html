@@ -4,11 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Point code → Route ID & Sequence</title>
-  <meta name="description" content="Point code lookup met CSV via bestand, URL of plakken. Geoptimaliseerd voor Android (numeric keyboard)." />
+  <meta name="description" content="Point code lookup met CSV via bestand, URL of plakken. Met native bestandskiezer (File System Access API) voor Android Chrome." />
   <style>
-    :root {
-      --bg:#0b1220; --fg:#e9f0ff; --muted:#9fb3d1; --card:#0f172a; --border:#1e293b; --ok:#67ff86; --err:#ff7a7a;
-    }
+    :root { --bg:#0b1220; --fg:#e9f0ff; --muted:#9fb3d1; --card:#0f172a; --border:#1e293b; --ok:#67ff86; --err:#ff7a7a; }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
     header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
@@ -24,6 +22,7 @@
     textarea{min-height:160px;background:#0b1327}
     input.big{font-size:28px;font-weight:700;letter-spacing:.5px}
     button.primary{background:#1d4ed8;border-color:#1e40af}
+    button.secondary{background:#0b1327}
     #out{background:#07101f;border:1px solid var(--border);border-radius:16px;padding:18px;min-height:140px}
     #big{font-size:48px;line-height:1.15;font-weight:900;letter-spacing:.5px;margin:0}
     #sub{font-size:18px;color:var(--muted);margin:8px 0 0 0}
@@ -38,28 +37,33 @@
       <img src="logo.jpg" alt="Cavalart koerier logo"/>
       <div>
         <h1>Cavalart koerier • Point code lookup</h1>
-        <div class="ver">v1.0.1 – 2025-09-17</div>
+        <div class="ver">v1.0.2 – 2025-09-17</div>
       </div>
     </div>
-    <div class="pill">CSV via bestand • URL • plakken</div>
+    <div class="pill">CSV via bestand • URL • plakken • <b>native picker</b></div>
   </header>
 
   <main>
     <section class="card">
       <h2>CSV laden</h2>
       <div class="content">
-        <p class="hint"><b>Android tips</b>: open deze pagina in <b>Chrome</b> (niet in WhatsApp/Instagram/Facebook in-app browser). In het bestandsvenster kies je <b>Bestanden</b> → <b>Downloads</b>.</p>
+        <p class="hint"><b>Android advies:</b> open in <b>Chrome</b> (niet in een in‑app browser). Druk op <b>Kies CSV (Downloads)</b> voor de <i>native</i> bestandskiezer.</p>
         <div class="row">
+          <button id="nativeBtn" class="primary">Kies CSV (Downloads)</button>
+          <button id="clearBtn" class="secondary">Leegmaken</button>
+        </div>
+        <div class="row">
+          <!-- Web-standaard input als fallback (sommige toestellen tonen toch gallery) -->
           <input type="file" id="csvfile" accept=".csv,text/csv,application/*,*/*" />
-          <button id="clearBtn">Leegmaken</button>
+          <button id="loadFileBtn">Laad gekozen bestand</button>
         </div>
         <div class="row">
           <input type="text" id="csvUrl" placeholder="of plak hier een CSV-URL (https://.../routes.csv)" />
-          <button id="loadUrlBtn" class="primary">Laad CSV van URL</button>
+          <button id="loadUrlBtn">Laad CSV van URL</button>
         </div>
-        <p class="hint">Lukt bestanden kiezen nog steeds niet? Plak dan de CSV-inhoud hieronder en klik <b>Laad geplakte CSV</b>.</p>
-        <textarea id="csvPaste" placeholder="Plak hier de CSV-tekst (met kolommen: Point code, Route ID, Route sequence)"></textarea>
-        <div class="row"><button id="loadPasteBtn" class="primary">Laad geplakte CSV</button></div>
+        <p class="hint">Lukt kiezen nog steeds niet? Plak dan de CSV-tekst hieronder en klik <b>Laad geplakte CSV</b>.</p>
+        <textarea id="csvPaste" placeholder="Plak hier de CSV-tekst (Point code, Route ID, Route sequence)"></textarea>
+        <div class="row"><button id="loadPasteBtn">Laad geplakte CSV</button></div>
         <div id="csvStatus" class="hint"></div>
       </div>
     </section>
@@ -83,7 +87,7 @@
       <h2>Tips</h2>
       <div class="content hint">
         <ul>
-          <li>CSV blijft lokaal (client-side); je data verlaat het toestel niet.</li>
+          <li>CSV blijft lokaal (client-side); data verlaat je toestel niet.</li>
           <li>Invoer: alleen cijfers nodig — matching negeert <b>BE</b> en voorloopnullen.</li>
           <li>Je kunt ook een <b>routes.csv</b> naast deze pagina hosten; die wordt automatisch geladen.</li>
         </ul>
@@ -114,29 +118,54 @@ function afterLoad(rows, label){
   csvStatus.innerHTML = `<span class="ok">CSV geladen (${label}):</span> ${db.length} rijen`;
 }
 
-function loadCsvFromFile(file){
-  Papa.parse(file, {
+function parseWithPapa(src, label){
+  Papa.parse(src, {
     header:true, skipEmptyLines:true,
-    complete:(res)=> afterLoad(res.data, 'bestand'),
-    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout:</span> ${err}`
+    complete:(res)=> afterLoad(res.data, label),
+    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout (${label}):</span> ${err}`
   });
 }
 
-function loadCsvFromUrl(url){
-  if(!/^https?:\/\//i.test(url)){ csvStatus.innerHTML = `<span class="err">Ongeldige URL</span>`; return; }
-  Papa.parse(url, {
-    download:true, header:true, skipEmptyLines:true,
+// --- Native file picker (File System Access API) ---
+async function pickNativeCSV(){
+  if (!window.showOpenFilePicker){
+    csvStatus.innerHTML = '<span class="err">Native bestandskiezer niet beschikbaar, gebruik de fallback hieronder.</span>';
+    return;
+  }
+  try{
+    const [handle] = await window.showOpenFilePicker({
+      types:[{ description: 'CSV files', accept: { 'text/csv': ['.csv'], 'application/*': ['.csv'], 'text/plain': ['.csv','.txt'] } }],
+      excludeAcceptAllOption: false,
+      multiple: false,
+      startIn: 'downloads'
+    });
+    const file = await handle.getFile();
+    parseWithPapa(file, 'native picker');
+  }catch(e){
+    if (e && e.name === 'AbortError') return;
+    csvStatus.innerHTML = '<span class="err">Kon bestand niet openen via native picker.</span>';
+  }
+}
+
+// --- Fallbacks ---
+function loadFromInputFile(){
+  const inp = document.getElementById('csvfile');
+  const f = inp.files && inp.files[0];
+  if (!f){ csvStatus.textContent = 'Geen bestand gekozen.'; return; }
+  parseWithPapa(f, 'bestand');
+}
+function loadFromUrl(){
+  const url = document.getElementById('csvUrl').value.trim();
+  if(!/^https?:\/\//i.test(url)){ csvStatus.innerHTML = '<span class="err">Ongeldige URL</span>'; return; }
+  Papa.parse(url, { download:true, header:true, skipEmptyLines:true,
     complete:(res)=> afterLoad(res.data, 'URL'),
     error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout (URL):</span> ${err}`
   });
 }
-
-function loadCsvFromPaste(text){
-  Papa.parse(text, {
-    header:true, skipEmptyLines:true,
-    complete:(res)=> afterLoad(res.data, 'plakken'),
-    error:(err)=> csvStatus.innerHTML = `<span class="err">CSV fout (plakken):</span> ${err}`
-  });
+function loadFromPaste(){
+  const t = document.getElementById('csvPaste').value;
+  if(!t.trim()){ csvStatus.textContent='Leeg tekstvak.'; return; }
+  parseWithPapa(t, 'plakken');
 }
 
 function renderResults(rows){
@@ -166,11 +195,12 @@ function doSearch(){
   renderResults(rows);
 }
 
-// UI events
-document.getElementById('csvfile').addEventListener('change', (ev)=>{ const f = ev.target.files[0]; if(!f) return; loadCsvFromFile(f); });
+// Bindings
+document.getElementById('nativeBtn').addEventListener('click', pickNativeCSV);
+document.getElementById('loadFileBtn').addEventListener('click', loadFromInputFile);
 document.getElementById('clearBtn').addEventListener('click', ()=>{ db = []; csvStatus.textContent = 'Leeg.'; renderResults([]); });
-document.getElementById('loadUrlBtn').addEventListener('click', ()=>{ const url = document.getElementById('csvUrl').value.trim(); loadCsvFromUrl(url); });
-document.getElementById('loadPasteBtn').addEventListener('click', ()=>{ const t = document.getElementById('csvPaste').value; if(!t.trim()){ csvStatus.textContent='Leeg tekstvak.'; return; } loadCsvFromPaste(t); });
+document.getElementById('loadUrlBtn').addEventListener('click', loadFromUrl);
+document.getElementById('loadPasteBtn').addEventListener('click', loadFromPaste);
 document.getElementById('searchBtn').addEventListener('click', doSearch);
 pointInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') doSearch(); });
 
